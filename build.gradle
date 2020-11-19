@@ -10,22 +10,24 @@ sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
-    maven { url 'https://repo.spring.io/snapshot' }
-    maven { url 'https://repo.spring.io/milestone' }
+    maven { url 'https://repo.spring.io/libs-release' }
 }
 
 ext {
-    set('springCloudVersion', "2020.0.0-SNAPSHOT")
+    boot_version = "2.2.2.RELEASE"
+    springCloudVersion = "Hoxton.SR1"
 }
 
 dependencies {
+    implementation "org.springframework.cloud:spring-cloud-config-server"
+
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 dependencyManagement {
     imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
+        mavenBom "org.springframework.boot:spring-boot-starter-parent:$boot_version"
     }
 }
 
