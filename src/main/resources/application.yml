@@ -4,6 +4,20 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
 server:
   port: 8761
+
+spring:
+  application:
+    name: discovery-service # ==> This is Service-Id
+  cloud:
+    config:
+      server:
+        prefix: config
+        native:
+          search-locations: classpath:/applications
+  profiles:
+    active: native

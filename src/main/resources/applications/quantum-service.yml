@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: quantum-service # ==> This is Service-Id
+  resources:
+    add-mappings: false
+
+eureka:
+  instance:
+    appname: quantum-service  # ==> This is a instance of quantum-service
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8780
