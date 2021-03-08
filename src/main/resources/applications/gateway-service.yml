@@ -6,11 +6,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: employeeModule
+        - id: quantum-service
           uri: http://localhost:8780/
           predicates:
             - Path=/quantum/**
-        - id: consumerModule
+        - id: file-service
           uri: http://localhost:8781/
           predicates:
             - Path=/file/**
